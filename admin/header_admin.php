@@ -1,3 +1,6 @@
+<?php
+require '../config.php';
+?>
 <!DOCTYPE html>
 <html lang="">
 <head>
@@ -45,8 +48,8 @@
 					
                                 <li><a href="manage_user.php">Manage User</a></li>
                                 <li><a href="manage_question.php">Manage Question</a></li>
-                                <li><a href="{{ route('budjet.create') }}">Manage Settings</a></li>
-                                <li><a href="{{ route('budjet.create') }}">Manage Report</a></li>
+                                <li><a href="manage_setting.php">Manage Settings</a></li>
+                                <li><a href="manage_report.php">Manage Report</a></li>
 								
                     </ul>
 

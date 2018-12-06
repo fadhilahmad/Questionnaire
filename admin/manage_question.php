@@ -25,52 +25,97 @@
 </body>
 
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title" id="title">Add New User
+                <div class="modal-title" id="title">Add Question
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
             </div>
-            <div class="modal-body">
+            
+            <div class="modal-body">           
+                <div class='panel panel-primary'>        
+                    <div class='panel-heading'>Question</div>
+                    <div class='panel-body'>
+
+                        <div class='form-group form-group-sm'>
+                            <label class='control-label col-sm-4'>Description</label>
+                            <div class='col-sm-8'>
+                                <input type='text' name='question_desc' value='' class='form-control' autocomplete="off"/>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="form-group form-group-sm">
+                            <label class="control-label col-sm-4">Section</label>
+                            <div class="col-sm-8">                      
+                                <select name='question_section' class='form-control'>
+                                    <option value='1'>1</option>
+                                    <option value='2'>2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="form-group form-group-sm">
+                            <label class="control-label col-sm-4">Post Type</label>
+                            <div class="col-sm-8">                      
+                                <select name='post_type' class='form-control'>
+                                    <option value='0'>Both</option>
+                                    <option value='1'>Undergrade</option>
+                                    <option value='2'>Postgrade</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="form-group form-group-sm">
+                            <label class="control-label col-sm-4">Filter Type</label>
+                            <div class="col-sm-8">                      
+                                <select name='filter_type' class='form-control'>
+                                    <option value='0'>No</option>
+                                    <option value='1'>Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
                 
-                <div class="form-group row">
-                    <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Username</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-lg" id="username" placeholder="Username" name="username">
+                <div class='panel panel-primary'>        
+                    <div class='panel-heading'>Answer</div>
+                    <div class='panel-body'>
+
+                        <div class="form-group form-group-sm">
+                            <label class="control-label col-sm-4">Input Type</label>
+                            <div class="col-sm-8">                      
+                                <select name='answer_input' class='form-control'>
+                                    <option value='text'>Text</option>
+                                    <option value='radio'>Radio Button</option>
+                                    <option value='checkbox'>Checkbox</option>
+                                    <option value='satisfaction'>Satisfaction</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div id='answer'>
+                        <div class="ansList1">
+                        <div class='form-group form-group-sm'>
+                            <label class='control-label col-sm-4'>Description</label>
+                            <div class='col-sm-7'>
+                                <input type='text' name='answer_desc' value='' class='form-control' autocomplete="off"/>
+                            </div>
+                            <div class='col-sm-1 answerSpatial' data-listid='1'>
+                                <div class='btn btn-default btn-sm addAnswer' data-listid='1'><i class='glyphicon glyphicon-plus'></i></div>
+                            </div>
+                        </div>
+                        <br>
+                        </div>
+                        <br><br>
+                        </div>
+                        <br><br>                      
                     </div>
                 </div>
-				
-				<div class="form-group row">
-                    <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Password</label>
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control form-control-lg" id="password" placeholder="Password" name="password">
-                    </div>
-                </div>
-				
-				<div class="form-group row">
-                    <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Full Name</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-lg" id="full_name" placeholder="Full name" name="full_name">
-                    </div>
-                </div>
-				
-				<div class="form-group row">
-                    <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-lg" id="email" placeholder="Email" name="email">
-                    </div>
-                </div>
-				
-				<div class="form-group row">
-                    <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Phone</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-lg" id="phone" placeholder="Phone" name="phone">
-                    </div>
-                </div>
-				
+                
             </div>
             <div class="modal-footer">
                 <input type="hidden" id="id" >
@@ -81,3 +126,36 @@
         </div>
     </div>
 </div>
+
+<script>
+
+$('#answer').on('click', '.addAnswer', function () {
+            
+            var index = $(this).data('listid') + 1;
+            var current = $(this).data('listid');
+            
+            var $deleteButton = "<div class='btn btn-default btn-sm deleteAnswer' data-delid='" + current + "'><i class='glyphicon glyphicon-trash'></i></div>";       
+            $('.answerSpatial[data-listid="' + current + '"]').html($deleteButton);
+            
+            var $addAnswer = "<div class='form-group form-group-sm ansList"+index+"'>";
+                $addAnswer += "<label class='control-label col-sm-4'></label>";
+                $addAnswer += "<div class='col-sm-7'>";
+                $addAnswer += "<input type='text' name='answer_desc' value='' class='form-control' autocomplete='off'/>";
+                $addAnswer += "</div>";
+                $addAnswer += "<div class='col-sm-1 answerSpatial' data-listid="+index+">";
+                $addAnswer += "<div class='btn btn-default btn-sm addAnswer' data-listid="+index+"><i class='glyphicon glyphicon-plus'></i></div>";
+                $addAnswer += "</div><br><br></div>";
+            $($addAnswer).appendTo('#answer');
+
+});
+
+$('#answer').on('click', '.deleteAnswer', function () {
+    
+            var deleteid = $(this).data('delid');
+            if (deleteid > 1) {
+                $('.ansList' + deleteid).remove();
+            }
+            console.log(deleteid);
+            
+});
+</script>
