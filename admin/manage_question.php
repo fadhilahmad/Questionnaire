@@ -16,7 +16,13 @@
                         <br>
                     </div>
                     <div class="panel-body">
-
+                            <?php
+//                                  foreach($question_list as $value) {
+//                                       echo $value;           
+//                                    }
+//                                  echo $question_list;   
+                            //print_r($question_list);
+                            ?>
                     </div>
                 </div>
             </div>
@@ -25,6 +31,7 @@
 	
 </body>
 
+<form id="questionForm" action="manage_question.php" method="post" >
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -44,7 +51,7 @@
                         <div class='form-group form-group-sm'>
                             <label class='control-label col-sm-4'>Description</label>
                             <div class='col-sm-8'>
-                                <input type='text' name='question_desc' value='' class='form-control' autocomplete="off"/>
+                                <input type='text' name='question_desc' value='' class='form-control' required="required" autocomplete="off"/>
                             </div>
                         </div>
                         <br><br>
@@ -103,7 +110,7 @@
                         <div class='form-group form-group-sm'>
                             <label class='control-label col-sm-4'>Description</label>
                             <div class='col-sm-7'>
-                                <input type='text' name='answer_desc' value='' class='form-control' autocomplete="off"/>
+                                <input type='text' name='answer_desc[]' class='form-control' autocomplete="off"/>
                             </div>
                             <div class='col-sm-1 answerSpatial' data-listid='1'>
                                 <div class='btn btn-default btn-sm addAnswer' data-listid='1'><i class='glyphicon glyphicon-plus'></i></div>
@@ -122,11 +129,12 @@
                 <input type="hidden" id="id" >
                 <button type="button" class="btn btn-danger" id="delete" data-dismiss="modal" style="display: none">Delete</button>
                 <button type="button" class="btn btn-primary" id="update" style="display: none">Save changes</button>
-                <button type="button" class="btn btn-primary" id="add">Add</button>
+                <button type="sumbit" name="submitQuestion" class="btn btn-primary" id="add">Add</button>
             </div>
         </div>
     </div>
 </div>
+</form>
 
 <script>
 
@@ -141,7 +149,7 @@ $('#answer').on('click', '.addAnswer', function () {
             var $addAnswer = "<div class='form-group form-group-sm ansList"+index+"'>";
                 $addAnswer += "<label class='control-label col-sm-4'></label>";
                 $addAnswer += "<div class='col-sm-7'>";
-                $addAnswer += "<input type='text' name='answer_desc' value='' class='form-control' autocomplete='off'/>";
+                $addAnswer += "<input type='text' name='answer_desc[]' class='form-control' autocomplete='off'/>";
                 $addAnswer += "</div>";
                 $addAnswer += "<div class='col-sm-1 answerSpatial' data-listid="+index+">";
                 $addAnswer += "<div class='btn btn-default btn-sm addAnswer' data-listid="+index+"><i class='glyphicon glyphicon-plus'></i></div>";
