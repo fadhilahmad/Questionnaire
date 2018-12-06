@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="">
 
     <title></title>
 
@@ -44,9 +44,7 @@
                     <ul class="nav navbar-nav navbar-left">
 					
                                 <li><a href="manage_user.php">Manage User</a></li>
-                                <li><a href="{{ route('budjet.create') }}">Section 1</a></li>
-                                <li><a href="{{ route('budjet.create') }}">Section 2</a></li>
-                                <li><a href="{{ route('budjet.create') }}">Section 3</a></li>
+                                <li><a href="manage_question.php">Manage Question</a></li>
                                 <li><a href="{{ route('budjet.create') }}">Manage Settings</a></li>
                                 <li><a href="{{ route('budjet.create') }}">Manage Report</a></li>
 								
