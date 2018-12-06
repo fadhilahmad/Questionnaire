@@ -134,8 +134,8 @@
 		
 	</head>
 	
-	<body style="font-family: Arial, Helvetica, sans-serif;">
-		
+	<body bgcolor="#E6E6FA" style="font-family: Arial, Helvetica, sans-serif;">
+		Login pageses
 		<div class="container">
 			
 			<h1 style="text-align: center;">Student Satisfaction of UUM Services</h1>
