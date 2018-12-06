@@ -1,5 +1,6 @@
 <?php 
 	include ('./header_admin.php');
+        include ('./backend/manage_question.php');
 ?>
 <body>
 	
