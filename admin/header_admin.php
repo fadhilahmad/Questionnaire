@@ -35,7 +35,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-						<img src="../image/uumlogo.jpg" alt="UUM Logo" width="120" height="45" style="margin-right: 35px;">
+		    <img src="../image/uumlogo.jpg" alt="UUM Logo" width="120" height="45" style="margin-right: 35px;">
                     
                 </div>
 

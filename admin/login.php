@@ -150,7 +150,7 @@
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
 				
-				<form action="dashboard.php" method="post">
+                                    <form action="manage_user.php" method="post">
 					<div class="login">
 						<input type="text" placeholder="Username" id="username">  
 						<input type="password" placeholder="Password" id="password">  
