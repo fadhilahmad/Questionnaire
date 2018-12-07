@@ -11,7 +11,7 @@ require '../config.php';
     <!-- CSRF Token -->
     <meta name="csrf-token" content="">
 
-    <title></title>
+    <title>Survey</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
