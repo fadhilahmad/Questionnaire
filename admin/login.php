@@ -1,5 +1,5 @@
 <?php
-   include ('./backend/login.php');
+   include ('backend/login.php');
 ?>
 <html>
 	
@@ -138,7 +138,7 @@
 	</head>
 	
 	<body bgcolor="#E6E6FA" style="font-family: Arial, Helvetica, sans-serif;">
-		Login pageses
+            
 		<div class="container">
 			
 			<h1 style="text-align: center;">Student Satisfaction of UUM Services</h1>
@@ -151,15 +151,15 @@
 			<!-- Questions -->
 			<br>
 			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
+                            <div class="col-md-6 col-md-offset-3">
 				
-                                    <form action="manage_user.php" method="post">
-					<div class="login">
-						<input type="text" placeholder="Username" id="username">  
-						<input type="password" placeholder="Password" id="password">  
-						<a href="#" class="forgot">forgot password?</a>
-						<input type="submit" value="Sign In">
-					</div>
+                                <form action="login.php" method="post">
+                                    <div class="login">
+					<input type="text" placeholder="Username" name="username" id="username">  
+                                        <input type="password" placeholder="Password" name="password" id="password">  
+					<a href="#" class="forgot">forgot password?</a>
+					<input type="submit" name="submit" id="add" value="Sign In">
+                                    </div>
 				</form>
 				
 				</div>
@@ -177,3 +177,23 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+    
+    $(document).ready(function(){
+        
+        /****************************** Alert empty in login function *********************/
+        $('#add').click(function(event){
+            var usernames = $('#username').val();
+            var password = $('#password').val();
+            if(usernames=="" || password==""){
+                alert('Please fill all section');
+            }else{
+                
+            }
+        });
+        /****************************** Alert empty in login function *********************/
+        
+    });
+        
+</script>
