@@ -3,7 +3,9 @@
         include ('./backend/manage_question.php');
 ?>
 <body>
-	
+    <?php 
+        if(isset($_SESSION['username'])){
+    ?>
     <div class="container">	
 	<div class="row">
             <div class="col-md-12 col-md-offset-0">
@@ -61,7 +63,9 @@
             </div>
         </div>	
     </div>
-	
+    <?php   
+	}
+    ?>
 </body>
 
 <form id="questionForm" action="manage_question.php" method="post" >

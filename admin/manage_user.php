@@ -1,8 +1,12 @@
 <?php 
+    
     include ('./header_admin.php');
     include ('backend/manage_user.php');
 ?>
 <body>
+    <?php 
+        if(isset($_SESSION['username'])){
+    ?>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-md-offset-0">
@@ -60,7 +64,10 @@
                 </div>
             </div>
         </div>
-    </div>	
+    </div>
+    <?php   
+	}
+    ?>
 </body>
 
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

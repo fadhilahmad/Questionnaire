@@ -1,4 +1,6 @@
 <?php
+// start the session
+session_start();
 include ('../config.php');
 ?>
 <!DOCTYPE html>
@@ -45,19 +47,20 @@ include ('../config.php');
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-left">
-					
-                                <li><a href="manage_user.php">Manage User</a></li>
-                                <li><a href="manage_question.php">Manage Question</a></li>
-                                <li><a href="manage_setting.php">Manage Settings</a></li>
-                                <li><a href="manage_report.php">Manage Report</a></li>
-								
+                        <li><a href="manage_user.php">Manage User</a></li>
+                        <li><a href="manage_question.php">Manage Question</a></li>
+                        <li><a href="manage_setting.php">Manage Settings</a></li>
+                        <li><a href="manage_report.php">Manage Report</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                            <!--<li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>-->
+                            <?php
+                                if(isset($_SESSION['username'])){
+                                    $username = $_SESSION['username'];
+                                    echo "<li style='color:#878785; padding-top:17px;'>".$username."</li>";
+                                }
+                            ?>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <span class="caret"></span>
@@ -65,25 +68,12 @@ include ('../config.php');
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        <a href="login.php">
                                             Logout
                                         </a>
-										
-										<!--
-                                        <form id="logout-form" action="login.php" method="POST" style="display: none;">
-										
-                                        </form>
-										-->
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-										
-                                        </form>
                                     </li>
                                 </ul>
-                            </li>
-							
+                            </li>	
                     </ul>
                 </div>
             </div>

@@ -131,6 +131,9 @@
     
 </style>
 <body>
+    <?php 
+        if(isset($_SESSION['username'])){
+    ?>
     <br>
     <center>       
         <div class="login">
@@ -182,4 +185,7 @@
             </form>
         </div>
     </center>
+    <?php   
+	}
+    ?>
 </body> 
