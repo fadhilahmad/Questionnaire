@@ -1,6 +1,6 @@
 <?php
     include '../config.php';
-    include './backend/quest.php';
+    include './backend/quest2.php';
 ?>
 <html>	
     <head>
@@ -22,9 +22,8 @@
 			<p style="font-size:13px; font-weight:bold;">Please answer the following questions by choosing the option which best represent yourself accordingly.</p>
 			
 			-->
-                    <h2>Section 1: Respondent's Background</h2>
-                    <!-- Questions --><br>
-                    <form action="quest.php" method="post">
+                    <h2>Section 2: </h2><br>
+                    <form action="quest2.php" method="post">
                         <div class="row" id="question">
 
                             <?php
@@ -45,7 +44,7 @@
                                                  
                             <?php $no++; } ?>
                         </div>
-
+                        <input type="hidden" name="parent_id" value="<?php echo $parent_id;   ?>" >
                     <div class="row">
                         <center><button class="btn btn-default btn-lg" type="submit" name="submit">Submit</button></center>	
                     </div><br><br>

@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <br><br>
-                        <div class="form-group form-group-sm">
+<!--                        <div class="form-group form-group-sm">
                             <label class="control-label col-sm-4">Post Type</label>
                             <div class="col-sm-8">                      
                                 <select name='post_type' class='form-control'>
@@ -55,7 +55,7 @@
                                 </select>
                             </div>
                         </div>
-                        <br><br>
+                        <br><br>-->
                     </div>
                 </div>
                 

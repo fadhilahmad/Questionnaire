@@ -44,8 +44,8 @@ if(isset($_POST['submitQuestion'])){
     
 $question_desc = $_POST['question_desc'];
 $question_section = $_POST['question_section'];
-$post_type = $_POST['post_type'];
-$filter_type = $_POST['filter_type'];
+$post_type = 0; //$_POST['post_type'];
+$filter_type = 0; //$_POST['filter_type'];
 $answer_input = $_POST['answer_input'];
 $ans_desc = array();
 $ans_desc = $_POST['answer_desc'];

@@ -39,10 +39,10 @@
                                                 <div class='col-xs-10'>: <strong><?php echo $value['updated']; ?></strong></div>
                                                 <div class='col-xs-2'>Section</div>
                                                 <div class='col-xs-10'>: <strong><?php echo $value['q_sec']; ?></strong></div>
-                                                <div class='col-xs-2'>Post Type</div>
+<!--                                                <div class='col-xs-2'>Post Type</div>
                                                 <div class='col-xs-10'>: <strong><?php echo $value['type']; ?></strong></div>
                                                 <div class='col-xs-2'>Filter Type</div>
-                                                <div class='col-xs-10'>: <strong><?php echo $value['filter']; ?></strong></div>
+                                                <div class='col-xs-10'>: <strong><?php echo $value['filter']; ?></strong></div>-->
                                                 <div class='col-xs-2'>Question Description</div>
                                                 <div class='col-xs-10'>: <strong><?php echo $value['q_desc']; ?></strong></div>
                                                 
@@ -102,7 +102,7 @@
                             </div>
                         </div>
                         <br><br>
-                        <div class="form-group form-group-sm">
+<!--                        <div class="form-group form-group-sm">
                             <label class="control-label col-sm-4">Post Type</label>
                             <div class="col-sm-8">                      
                                 <select name='post_type' class='form-control'>
@@ -122,7 +122,7 @@
                                 </select>
                             </div>
                         </div>
-                        <br><br>
+                        <br><br>-->
                     </div>
                 </div>
                 

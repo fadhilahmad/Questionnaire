@@ -1,7 +1,7 @@
 <?php
 //-------------------------------------------------------------------DISPLAY ALL QUESTION--------------------------------------------------------------------------
 
-$sql = "SELECT * FROM question WHERE status = 1";
+$sql = "SELECT * FROM question WHERE status = 1 AND q_section = 1 ";  //AND post_type = 0 AND filter_type = 0
 $result = $conn->query($sql);
 $question_list = array();
 
@@ -67,12 +67,13 @@ function display($conn,$no,$q_id,array $answer) {
         break;
     case "checkbox":
         echo "<p style='font-size:13px;'>Please choose <strong>all</strong> that apply:</p>";
+            $set = 1;
             foreach($answer as $value) {
                 if(is_array($value)){
                     $ans_desc = $value['ans_desc'];
-                    echo "<input type='checkbox' name='".$name."' value='".$ans_desc."' > ".$ans_desc."<br>";               
+                    echo "<input type='checkbox' name='".$name."_".$set."' value='".$ans_desc."' > ".$ans_desc."<br>";               
                 }
-            }
+            }$set++;
         break;
     case "satisfaction":
         echo "<p style='font-size:13px;'>Please choose the appropriate response for each item:</p>";
@@ -109,7 +110,37 @@ function display($conn,$no,$q_id,array $answer) {
         break;
     default:
         echo "No question";
+}    
 }
+
+//-------------------------------------------------------------------SUBMIT FUNCTION--------------------------------------------------------------------------
+if (isset($_POST['submit'])){
     
+    $survey=array();
+    $survey=$_POST['survey'];
+//    echo "<pre>";
+//    print_r($survey);
+//    echo "</pre>";
     
+    $sql = "INSERT INTO survey_parent (status, created_date)
+    VALUES ('1', NOW())";
+
+    if ($conn->query($sql) === TRUE) {
+        $parent_id = $conn->insert_id;
+    
+    foreach ($survey as $value){
+        foreach ($value as $k=>$v){
+    //    echo "id=".$k.",ans=".$v."<br>";
+        
+            $sql = "INSERT INTO survey_answer (q_id, parent_id, answer)
+            VALUES ('$k','$parent_id','$v')";
+
+            $conn->query($sql);
+            
+            }
+        }
+    }
+    
+   header("Location: quest2.php?parent=".$parent_id);
+       
 }
