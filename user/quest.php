@@ -22,6 +22,7 @@
 			<p style="font-size:13px; font-weight:bold;">Please answer the following questions by choosing the option which best represent yourself accordingly.</p>
 			
 			-->
+                    <?php  if($open == true && $set == true){     ?>
                     <h2>Section 1: Respondent's Background</h2>
                     <!-- Questions --><br>
                     <form action="quest.php" method="post">
@@ -50,6 +51,8 @@
                         <center><button class="btn btn-default btn-lg" type="submit" name="submit">Submit</button></center>	
                     </div><br><br>
                     </form>
+                    
+                <?php  }else{ echo "<center><h2>Survey are closed</h2></center>";  } ?>
             </div>		
 	</body>	
 </html>

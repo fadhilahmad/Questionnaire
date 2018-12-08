@@ -39,7 +39,7 @@
                                                 <div class='col-xs-10'>: <strong><?php echo $value['updated']; ?></strong></div>
                                                 <div class='col-xs-2'>Section</div>
                                                 <div class='col-xs-10'>: <strong><?php echo $value['q_sec']; ?></strong></div>
-<!--                                                <div class='col-xs-2'>Post Type</div>
+<!--                                            <div class='col-xs-2'>Post Type</div>
                                                 <div class='col-xs-10'>: <strong><?php echo $value['type']; ?></strong></div>
                                                 <div class='col-xs-2'>Filter Type</div>
                                                 <div class='col-xs-10'>: <strong><?php echo $value['filter']; ?></strong></div>-->
@@ -138,6 +138,7 @@
                                     <option value='radio'>Radio</option>
                                     <option value='checkbox'>Checkbox</option>
                                     <option value='satisfaction'>Satisfaction</option>
+                                    <option value='yes/no'>Yes/no</option>
                                 </select>
                             </div>
                         </div>

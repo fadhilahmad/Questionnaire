@@ -72,6 +72,7 @@
                                     <option value='radio'>Radio</option>
                                     <option value='checkbox'>Checkbox</option>
                                     <option value='satisfaction'>Satisfaction</option>
+                                    <option value='yes/no'>Yes/no</option>
                                 </select>
                             </div>
                         </div>

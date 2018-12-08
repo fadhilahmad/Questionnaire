@@ -1,9 +1,44 @@
 <?php
+
+//-------------------------------------------------------------------CHECK SETTING--------------------------------------------------------------------------
+$sql = "SELECT * FROM setting"; 
+$result = $conn->query($sql);
+$data = $result->fetch_assoc();
+
+$sql_count = "SELECT COUNT(parent_id) AS respon_count
+              FROM survey_parent
+              WHERE STATUS=1";
+$result_count = $conn->query($sql_count);
+$no_respon = $result_count->fetch_assoc();
+
+date_default_timezone_set("Asia/Kuala_Lumpur");
+$time = date("h:i:s");
+$day = date("Y-m-d");
+$count = $no_respon['respon_count'];
+
+//echo $no_respon['respon_count']."<br>";
+//echo $data['open_time']."<br>";
+//echo $data['no_respondent']."<br>";
+//echo $time."<br>";
+//echo $day."<br>";
+
+if($time >= $data['open_time'] && $time <= $data['close_time'] && $count < $data['no_respondent']  && $day <= $data['close_day'] ){
+    $open = true;
+} else {
+    $open = false;
+}
+
 //-------------------------------------------------------------------DISPLAY ALL QUESTION--------------------------------------------------------------------------
 
 $sql = "SELECT * FROM question WHERE status = 1 AND q_section = 2 ";  //AND post_type = 0 AND filter_type = 0
 $result = $conn->query($sql);
 $question_list = array();
+
+if($result->num_rows > 0){
+    $set = TRUE;
+}else{
+    $set = FALSE;
+}
 
 while ($row = $result->fetch_assoc()) {
     $question_list[$row['q_id']]['q_id'] = $row['q_id'];
@@ -105,6 +140,29 @@ function display($conn,$no,$q_id,array $answer) {
                             <div class='col-xs-1'><input type="radio" name="<?php echo $name."_".$set; ?>" value="5" ></div>
                             <div class='col-xs-1'><input type="radio" name="<?php echo $name."_".$set; ?>" value="6" ></div>
                             <div class='col-xs-1'><input type="radio" name="<?php echo $name."_".$set; ?>" value="7" ></div>
+                        </div>            
+                        <?php
+                    }
+                    $set++;
+                }
+        break;
+     case "yes/no":
+         echo "<p style='font-size:13px;'>Please choose the appropriate response for each item:</p>";
+         ?> <div class="row">
+                    <div class='col-xs-6'><center>Item</center></div>                                   
+                    <div class='col-xs-3'>Yes</div>
+                    <div class='col-xs-3'>No</div>
+                </div>
+            <?php
+                $set = 1;
+                foreach($answer as $value) {
+                    if(is_array($value)){
+                        $ans_desc = $value['ans_desc'];
+                        ?>
+                        <div class="row">
+                            <div class='col-xs-6'><?php echo $ans_desc;  ?></div>                                   
+                            <div class='col-xs-3'><input type="radio" name="<?php echo $name."_".$set; ?>" value="Yes" required="required"></div>
+                            <div class='col-xs-3'><input type="radio" name="<?php echo $name."_".$set; ?>" value="No" ></div>
                         </div>            
                         <?php
                     }

@@ -1,5 +1,22 @@
 <?php
 
+//-------------------------------------------------------------------CHECK SETTING--------------------------------------------------------------------------
+$sql = "SELECT * FROM setting"; 
+$result = $conn->query($sql);
+$data = $result->fetch_assoc();
+
+if($result->num_rows > 0){
+    $open_time = $data['open_time'];
+    $close_time = $data['close_time'];
+    $close_day = $data['close_day'];
+    $no_res = $data['no_respondent'];
+    $button = "UPDATE";
+} else {
+    $button = "SUBMIT";
+}
+
+//-------------------------------------------------------------------SETTING UPDATE/ADD--------------------------------------------------------------------------
+
 if(isset($_POST['submit'])){
     
     $errorsettings = array();
@@ -37,16 +54,18 @@ if(isset($_POST['submit'])){
 		VALUES('$open', '$close', '$close_date', '$num')";
             $result = mysqli_query($conn, $sql);
             echo '<script language="javascript">';
-            echo 'alert("New setting data inserted")';
+            echo 'alert("New setting data inserted");';
             echo '</script>';
+            header("Refresh:0");
         }else{
             $sql = "UPDATE setting "
                 . "SET setting.open_time='$open', setting.close_time='$close', setting.close_day='$close_date', setting.no_respondent='$num'"
                 . "WHERE setting.setting_id=1";
             $result = mysqli_query($conn, $sql);
             echo '<script language="javascript">';
-            echo 'alert("Setting updated")';
+            echo 'alert("Setting updated");';
             echo '</script>';
+            header("Refresh:0");
         }
     }else{
 //        foreach($erroradd as $values){

@@ -141,7 +141,7 @@
             <form action="manage_setting.php" method="post">
                 <p style="font-size:40px; color:#a7a7a9;"><strong>Manage Settings</strong></p>                    
                 <select name="open" id="soflow" style="margin-top:30px;" required="true">
-                    <option hidden="true" value="">Open Time</option>
+                    <?php if($open_time){ echo "<option value=".$open_time.">".date('h:i a',strtotime($open_time))."</option>";}else{ ?><option hidden="true" value="">Open Time</option> <?php } ?>
                     <option value="06:00:00">6.00 am</option>
                     <option value="07:00:00">7.00 am</option>
                     <option value="08:00:00">8.00 am</option>
@@ -160,7 +160,7 @@
                 <br>
                 <br>
                 <select name="close" id="soflow" required="true">
-                    <option hidden="true" value="">Close Time</option>
+                    <?php if($open_time){ echo "<option value=".$close_time.">".date('h:i a',strtotime($close_time))."</option>";}else{ ?><option hidden="true" value="">Close Time</option><?php } ?>
                     <option value="06:00:00">6.00 am</option>
                     <option value="07:00:00">7.00 am</option>
                     <option value="08:00:00">8.00 am</option>
@@ -179,9 +179,9 @@
                 <br>
                 <br>
                 <p>Close Date : 
-                <input type="date" id="meeting" name="close_date" required></p>
-                <input type="text" placeholder="Number of Respondents" name="num" id="num" required="">
-                <input type="submit" name="submit" value="Submit">
+                <input type="date" id="meeting" name="close_date" value="<?php if($close_day){ echo $close_day; }else{ echo '';} ?>" required></p>
+                <input type="text" placeholder="Number of Respondents" name="num" value="<?php if(isset($no_res)){ echo $no_res; }else{ echo '';} ?>" id="num" required="">
+                <input type="submit" name="submit" value="<?php echo $button; ?>">
             </form>
         </div>
     </center>
