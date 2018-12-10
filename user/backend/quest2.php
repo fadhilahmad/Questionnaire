@@ -12,7 +12,7 @@ $result_count = $conn->query($sql_count);
 $no_respon = $result_count->fetch_assoc();
 
 date_default_timezone_set("Asia/Kuala_Lumpur");
-$time = date("h:i:s");
+$time = date("H:i:s");
 $day = date("Y-m-d");
 $count = $no_respon['respon_count'];
 

@@ -173,7 +173,7 @@
                     <option value="15:00:00">3.00 pm</option>
                     <option value="16:00:00">4.00 pm</option>
                     <option value="17:00:00">5.00 pm</option>
-                    <option value="18:00:00">6.00 pm</option>
+                    <option value="19:00:00">6.00 pm</option>
                 </select>
                 <br>
                 <br>
